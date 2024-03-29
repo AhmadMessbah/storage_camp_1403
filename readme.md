@@ -5,6 +5,6 @@ Group Members:
     Matin Zarei
     Ariana Mahmoodi
     Ahmad Tavakoli
-    Ali Fataaliangi
+    Ali Fataalian
     Soorena Mohammadi
     Fatemeh Teimoori
