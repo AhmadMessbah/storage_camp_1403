@@ -14,17 +14,17 @@ class PersonDa:
         self.cursor.close()
         self.connection.close()
 
-    def save(self,name, family):
+    def save(self,name, family, phone):
         self.connect()
-        self.cursor.execute("INSERT INTO PERSON (name, family) VALUES (%s,%s)",
+        self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s)",
                             [name, family])
         self.connection.commit()
         self.disconnect()
 
-    def edit(self,id, name, family):
+    def edit(self,id, name, family, phone):
         self.connect()
-        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s WHERE ID=%s",
-                            [name,family,id])
+        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE ID=%s",
+                            [name,family,phone,id])
         self.connection.commit()
         self.disconnect()
 
