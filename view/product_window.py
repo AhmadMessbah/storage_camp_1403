@@ -2,6 +2,40 @@ import tkinter as tk
 
 
 
+
+class Table:
+    def refresh_table(self,data_list):
+        for item in self.table.get_children():
+            self.table.delete(item)
+
+        if data_list:
+            for data in data_list:
+                self.table.insert("", END, values=data)
+
+    def select(self, event):
+        selected = self.table.item(self.table.focus())["values"]
+        self.click(selected)
+
+    def __init__(self, master, data_list, headings, widths, x, y, click):
+        self.click = click
+        columns = list(range(len(headings)))
+
+        self.table = ttk.Treeview(master, columns=columns, show="headings")
+        for col in columns:
+            self.table.heading(col, text=headings[col])
+            self.table.column(col, width=widths[col])
+
+        if data_list:
+            for data in data_list:
+                self.table.insert("", END, values=data)
+
+        self.table.bind("<ButtonRelease>", self.select)
+        self.table.bind("<KeyRelease>", self.select)
+        self.table.place(x=x, y=y)
+
+
+
+
 def insert_data():
      pass
 
