@@ -1,6 +1,6 @@
 import mysql.connector
 
-class PersonDa:
+class productDa:
     def connect(self,):
         self.connection = mysql.connector.connect(
             host="localhost",
@@ -14,39 +14,39 @@ class PersonDa:
         self.cursor.close()
         self.connection.close()
 
-    def save(self,name, family, phone):
+    def save(self,name, brand, count, price_b, price_s):
         self.connect()
-        self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s)",
-                            [name, family])
+        self.cursor.execute("INSERT INTO product (name, brand, count, price_b, price_s) VALUES (%s,%s,%s,%s,%s)",
+                            [name,brand,count,price_b,price_s])
         self.connection.commit()
         self.disconnect()
 
-    def edit(self,id, name, family, phone):
+    def edit(self, count, price_b, price_s, id):
         self.connect()
-        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE ID=%s",
-                            [name,family,phone,id])
+        self.cursor.execute("UPDATE product SET count=%s, price_b=%s,  price_s=%s WHERE ID=%s",
+                            [count, price_b, price_s, id])
         self.connection.commit()
         self.disconnect()
 
     def remove(self,id):
         self.connect()
-        self.cursor.execute("DELETE FROM PERSON WHERE ID=%s",
+        self.cursor.execute("DELETE FROM product WHERE ID=%s",
                             [id])
         self.connection.commit()
         self.disconnect()
 
     def find_all(self):
         self.connect()
-        self.cursor.execute("SELECT * FROM PERSON ORDER BY FAMILY")
-        person_list = self.cursor.fetchall()
+        self.cursor.execute("SELECT * FROM product ORDER BY NAME")
+        product_list = self.cursor.fetchall()
         self.disconnect()
-        return person_list if person_list else None
+        return product_list if product_list else None
 
 
     def find_by_id(self,id):
         self.connect()
-        self.cursor.execute("SELECT * FROM PERSON WHERE ID=%s",
+        self.cursor.execute("SELECT * FROM BOOK WHERE ID=%s",
                             [id])
-        person = self.cursor.fetchall()
+        product = self.cursor.fetchall()
         self.disconnect()
-        return person[0] if person else None
+        return product[0] if product else None
