@@ -3,7 +3,6 @@ import tkinter.messagebox as msg
 from components import *
 import controller.person_controller as p_control
 
-
 def person_click():
     pass
 def stuff_click():
