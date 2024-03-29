@@ -45,10 +45,10 @@ win.title("Main Window")
 btn_person = tk.Button(win, text="Person", command=open_person_form, height=2, width=10)
 btn_person.pack()
 
-btn_stuff = tk.Button(win, text="Stuff", command=open_person_form, height=2, width=10)
+btn_stuff = tk.Button(win, text="Stuff", command="", height=2, width=10)
 btn_stuff.pack()
 
-btn_transactions = tk.Button(win, text="Transactions", command=open_person_form, height=2, width=10)
+btn_transactions = tk.Button(win, text="Transactions", command="", height=2, width=10)
 btn_transactions.pack()
 
 win.mainloop()
