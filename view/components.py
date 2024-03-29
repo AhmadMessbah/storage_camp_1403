@@ -4,7 +4,7 @@ from persiantools.jdatetime import JalaliDate
 
 
 class Table:
-    def refresh_table(self,data_list):
+    def refresh_table(self, data_list):
         for item in self.table.get_children():
             self.table.delete(item)
 

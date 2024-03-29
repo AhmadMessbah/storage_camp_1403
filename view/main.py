@@ -3,10 +3,15 @@ import tkinter.messagebox as msg
 from components import *
 import controller.person_controller as p_control
 
+
 def person_click():
     pass
+
+
 def stuff_click():
     pass
+
+
 def transaction_click():
     pass
 
@@ -14,7 +19,6 @@ def transaction_click():
 win = Tk()
 win.title("Library")
 win.geometry("500x400")
-
 
 Button(win,
        text="person",
