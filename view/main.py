@@ -1,11 +1,11 @@
 from tkinter import Tk, Button
 import tkinter.messagebox as msg
-#from components import *
-#import controller.person_controller as p_control
+from components import *
+import controller.person_controller as p_control
 
 from new_window import *
 def person_click():
-   open_person("Person")
+    open_person("Person")
 def stuff_click():
     open_stuff("Stuff")
 def transaction_click():

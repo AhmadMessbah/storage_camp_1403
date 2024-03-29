@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from view.test import TestForm
+from view.person_window import TestForm
 
 
 # Functions for opening new pages
@@ -42,19 +42,13 @@ win = tk.Tk()
 win.geometry("300x300")
 win.title("Main Window")
 
-# buttons = ["Person", "Stuff", "Transaction"]
-#
-# for button in buttons:
-#     btn = tk.Button(win, text=button, command=create_button, height=2, width=10)
-#     btn.pack()
-
 btn_person = tk.Button(win, text="Person", command=open_person_form, height=2, width=10)
 btn_person.pack()
 
-btn_stuff = tk.Button(win, text="Stuff", command=open_person_form, height=2, width=10)
+btn_stuff = tk.Button(win, text="Stuff", command="", height=2, width=10)
 btn_stuff.pack()
 
-btn_transactions = tk.Button(win, text="Transactions", command=open_person_form, height=2, width=10)
+btn_transactions = tk.Button(win, text="Transactions", command="", height=2, width=10)
 btn_transactions.pack()
 
 win.mainloop()

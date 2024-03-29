@@ -1,7 +1,8 @@
 import mysql.connector
 
+
 class PersonDa:
-    def connect(self,):
+    def connect(self, ):
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -14,21 +15,21 @@ class PersonDa:
         self.cursor.close()
         self.connection.close()
 
-    def save(self,name, family, phone):
+    def save(self, name, family, phone):
         self.connect()
         self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s)",
                             [name, family])
         self.connection.commit()
         self.disconnect()
 
-    def edit(self,id, name, family, phone):
+    def edit(self, id, name, family, phone):
         self.connect()
         self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE ID=%s",
-                            [name,family,phone,id])
+                            [name, family, phone, id])
         self.connection.commit()
         self.disconnect()
 
-    def remove(self,id):
+    def remove(self, id):
         self.connect()
         self.cursor.execute("DELETE FROM PERSON WHERE ID=%s",
                             [id])
@@ -42,8 +43,7 @@ class PersonDa:
         self.disconnect()
         return person_list if person_list else None
 
-
-    def find_by_id(self,id):
+    def find_by_id(self, id):
         self.connect()
         self.cursor.execute("SELECT * FROM PERSON WHERE ID=%s",
                             [id])
