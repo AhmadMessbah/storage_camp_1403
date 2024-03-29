@@ -1,12 +1,12 @@
 import tkinter as tk
 
-#abcdefghasdasd
+
 
 def insert_data():
      pass
 
 root = tk.Tk()
-root.title("Stuff")
+root.title("person")
 
 root.geometry("700x300")
 
