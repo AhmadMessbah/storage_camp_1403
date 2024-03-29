@@ -8,7 +8,7 @@ class TestForm:
 
     def __init__(self):
         win = Tk()
-        win.geometry("300x400")
+        win.geometry("300x450")
 
         def person_select(row):
             p_id.variable.set(row[0])
