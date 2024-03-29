@@ -45,7 +45,7 @@ class productDa:
 
     def find_by_id(self,id):
         self.connect()
-        self.cursor.execute("SELECT * FROM BOOK WHERE ID=%s",
+        self.cursor.execute("SELECT * FROM product WHERE ID=%s",
                             [id])
         product = self.cursor.fetchall()
         self.disconnect()

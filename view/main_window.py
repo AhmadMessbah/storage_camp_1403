@@ -1,9 +1,13 @@
 import tkinter as tk
 
 from view.person_window import TestForm
-
+import tkinter.messagebox as msg
 
 # Functions for opening new pages
+
+def open_stuff_form():
+    msg.showwarning("Message", "Under Construction")
+
 def open_person(title):
     person = tk.Toplevel(win)
     person.title(title)
@@ -45,7 +49,7 @@ win.title("Main Window")
 btn_person = tk.Button(win, text="Person", command=open_person_form, height=2, width=10)
 btn_person.pack()
 
-btn_stuff = tk.Button(win, text="Stuff", command="", height=2, width=10)
+btn_stuff = tk.Button(win, text="Stuff", command=open_stuff_form, height=2, width=10)
 btn_stuff.pack()
 
 btn_transactions = tk.Button(win, text="Transactions", command="", height=2, width=10)
