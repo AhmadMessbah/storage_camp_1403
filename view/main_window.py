@@ -1,27 +1,26 @@
-import tkinter as tk
+from tkinter import *
+from view.person_window import PersonForm
+from view.product_window import ProductForm
 
-from view.person_window import TestForm
 
-
-# Functions for opening new pages
 def open_person(title):
-    person = tk.Toplevel(win)
+    person = Toplevel(win)
     person.title(title)
     person.title("Person")
     return person
 
 
-def open_stuff(title):
-    open_stuff = tk.Toplevel(win)
-    open_stuff.title(title)
-    open_stuff.title("Stuff")
-    return open_stuff
+def open_product(title):
+    product = Toplevel(win)
+    product.title(title)
+    product.title("Stuff")
+    return product
 
 
 def open_transaction(title):
-    open_transaction = tk.Toplevel(win)
-    open_transaction.title(title)
-    open_transaction.title("Transaction")
+    transactions = Toplevel(win)
+    transactions.title(title)
+    transactions.title("Transaction")
     return open_transaction
 
 
@@ -29,26 +28,34 @@ def create_new_window(title):
     if title == "Person":
         open_person(title)
     elif title == "Stuff":
-        open_stuff(title)
+        open_product(title)
     elif title == "Transaction":
         open_transaction(title)
 
 
 def open_person_form():
-    TestForm()
+    PersonForm()
 
 
-win = tk.Tk()
+def open_product_form():
+    ProductForm()
+
+
+def open_transaction_form():
+    TransactionForm()
+
+
+win = Tk()
 win.geometry("300x300")
 win.title("Main Window")
 
-btn_person = tk.Button(win, text="Person", command=open_person_form, height=2, width=10)
+btn_person = Button(win, text="Person", command=open_person_form, height=2, width=10)
 btn_person.pack()
 
-btn_stuff = tk.Button(win, text="Stuff", command="", height=2, width=10)
+btn_stuff = Button(win, text="Product", command=open_product_form, height=2, width=10)
 btn_stuff.pack()
 
-btn_transactions = tk.Button(win, text="Transactions", command="", height=2, width=10)
+btn_transactions = Button(win, text="Transactions", command=open_transaction_form, height=2, width=10)
 btn_transactions.pack()
 
 win.mainloop()

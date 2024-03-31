@@ -1,73 +1,68 @@
 from tkinter import *
-import tkinter.ttk as ttk
+import tkinter.messagebox as msg
+from view.components import *
 
 
-class Table:
-    def refresh_table(self, data_list):
-        for item in self.table.get_children():
-            self.table.delete(item)
+class ProductForm:
 
-        if data_list:
-            for data in data_list:
-                self.table.insert("", END, values=data)
+    def __init__(self):
+        win = Tk()
+        win.geometry("300x450")
 
-    def select(self, event):
-        selected = self.table.item(self.table.focus())["values"]
-        self.click(selected)
+        def product_select(row):
+            product_id.variable.set(row[0])
+            product_name.variable.set(row[1])
+            product_family.variable.set(row[2])
 
-    def __init__(self, master, data_list, headings, widths, x, y, click):
-        self.click = click
-        columns = list(range(len(headings)))
+        def product_save_click():
+            status, message = product_control.save(
+                product_name.variable.get(),
+                product_family.variable.get())
 
-        self.table = ttk.Treeview(master, columns=columns, show="headings")
-        for col in columns:
-            self.table.heading(col, text=headings[col])
-            self.table.column(col, width=widths[col])
+            if status:
+                msg.showinfo("Save", message)
+                refresh_product_side()
+            else:
+                msg.showerror("Save Error", message)
 
-        if data_list:
-            for data in data_list:
-                self.table.insert("", END, values=data)
+        def product_edit_click():
+            status, message = product_control.edit(
+                product_id.variable.get(),
+                product_name.variable.get(),
+                product_family.variable.get())
 
-        self.table.bind("<ButtonRelease>", self.select)
-        self.table.bind("<KeyRelease>", self.select)
-        self.table.place(x=x, y=y)
+            if status:
+                msg.showinfo("Edit", message)
+                refresh_person_side()
+            else:
+                msg.showerror("Edit Error", message)
 
+        def product_remove_click():
+            status, message = product_control.remove(product_id.variable.get())
 
-def insert_data():
-    pass
+            if status:
+                msg.showinfo("Remove", message)
+                refresh_person_side()
+            else:
+                msg.showerror("Remove Error", message)
 
+        # Person
+        Label(win, text="Product Info", font=("Arial", 16)).place(x=20, y=10)
+        product_id = TextAndLabel(win, "name", 20, 50)
+        product_name = TextAndLabel(win, "family", 20, 85)
+        product_family = TextAndLabel(win, "phone", 20, 120)
 
-root = Tk()
-root.title("Stuff")
+        product_table = Table(win,
+                        None,
+                        ["name", "family", "phone"],
+                        [60, 100, 100],
+                        20,
+                        150,
+                        product_select)
+        Button(win, text="SavePerson", width=10, command=product_save_click).place(x=20, y=400)
+        Button(win, text="EditPerson", width=10, command=product_edit_click).place(x=110, y=400)
+        Button(win, text="RemovePerson", width=10, command=product_remove_click).place(x=200, y=400)
 
-root.geometry("350x350")
+        # refresh_person_side()
 
-label_name = Label(root, text="name:", font=("Arial", 14))
-label_name.grid(row=0, column=0, pady=10, padx=10)
-entry_name = Entry(root, font=("Arial", 14))
-entry_name.grid(row=0, column=1, pady=10, padx=10)
-
-label_brand = Label(root, text="brand:", font=("Arial", 14))
-label_brand.grid(row=5, column=0, pady=10, padx=10)
-entry_brand = Entry(root, font=("Arial", 14))
-entry_brand.grid(row=5, column=1, pady=10, padx=10)
-
-label_count = Label(root, text="count:", font=("Arial", 14))
-label_count.grid(row=2, column=0, pady=10, padx=10)
-entry_count = Entry(root, font=("Arial", 14))
-entry_count.grid(row=2, column=1, pady=10, padx=10)
-
-label_price_b = Label(root, text="price_b:", font=("Arial", 14))
-label_price_b.grid(row=3, column=0, pady=10, padx=10)
-entry_price_b = Entry(root, font=("Arial", 14))
-entry_price_b.grid(row=3, column=1, pady=10, padx=10)
-
-label_price_b = Label(root, text="price_b:", font=("Arial", 14))
-label_price_b.grid(row=4, column=0, pady=10, padx=10)
-entry_price_b = Entry(root, font=("Arial", 14))
-entry_price_b.grid(row=4, column=1, pady=10, padx=10)
-
-button_insert = Button(root, text="INSERT", command=insert_data, font=("Arial", 20))
-button_insert.grid(row=6, column=1, columnspan=2, pady=20)
-
-root.mainloop()
+        win.mainloop()

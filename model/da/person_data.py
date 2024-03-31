@@ -1,8 +1,8 @@
 import mysql.connector
 
 
-class PersonDa:
-    def connect(self, ):
+class PersonData:
+    def connect(self):
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -17,8 +17,8 @@ class PersonDa:
 
     def save(self, name, family, phone):
         self.connect()
-        self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s)",
-                            [name, family])
+        self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s,%s)",
+                            [name, family, phone])
         self.connection.commit()
         self.disconnect()
 
