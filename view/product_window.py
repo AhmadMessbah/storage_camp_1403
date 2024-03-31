@@ -1,6 +1,6 @@
-from tkinter import *
 import tkinter.messagebox as msg
 from view.components import *
+from controller.product_controller import *
 
 
 class ProductForm:
@@ -15,7 +15,7 @@ class ProductForm:
             product_family.variable.set(row[2])
 
         def product_save_click():
-            status, message = product_control.save(
+            status, message = save_product(
                 product_name.variable.get(),
                 product_family.variable.get())
 
@@ -26,7 +26,7 @@ class ProductForm:
                 msg.showerror("Save Error", message)
 
         def product_edit_click():
-            status, message = product_control.edit(
+            status, message = edit_product(
                 product_id.variable.get(),
                 product_name.variable.get(),
                 product_family.variable.get())
@@ -38,7 +38,7 @@ class ProductForm:
                 msg.showerror("Edit Error", message)
 
         def product_remove_click():
-            status, message = product_control.remove(product_id.variable.get())
+            status, message = remove_product(product_id.variable.get())
 
             if status:
                 msg.showinfo("Remove", message)

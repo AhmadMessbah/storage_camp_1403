@@ -52,8 +52,8 @@ win.title("Main Window")
 btn_person = Button(win, text="Person", command=open_person_form, height=2, width=10)
 btn_person.pack()
 
-btn_stuff = Button(win, text="Product", command=open_product_form, height=2, width=10)
-btn_stuff.pack()
+btn_product = Button(win, text="Product", command=open_product_form, height=2, width=10)
+btn_product.pack()
 
 btn_transactions = Button(win, text="Transactions", command=open_transaction_form, height=2, width=10)
 btn_transactions.pack()

@@ -23,18 +23,18 @@ class ProductData:
         self.connection.commit()
         self.disconnect()
 
-    def edit(self, quantity, buyer_price, seller_price, id):
+    def edit(self, id_to_edit, name, brand, quantity, buyer_price, seller_price):
         self.connect()
         self.cursor.execute(
             "UPDATE PRODUCT SET name=%s, brand=%s, quantity=%s, buyer_price=%s,  seller_price=%s WHERE product_id=%s",
-            [quantity, buyer_price, seller_price, id])
+            [id_to_edit, quantity, buyer_price, seller_price])
         self.connection.commit()
         self.disconnect()
 
-    def remove(self, id):
+    def remove(self, id_to_remove):
         self.connect()
         self.cursor.execute("DELETE FROM PRODUCT WHERE product_id=%s",
-                            [id])
+                            [id_to_remove])
         self.connection.commit()
         self.disconnect()
 
@@ -45,10 +45,10 @@ class ProductData:
         self.disconnect()
         return product_list if product_list else None
 
-    def find_by_id(self, id):
+    def find_by_id(self, id_to_search):
         self.connect()
         self.cursor.execute("SELECT * FROM PRODUCT WHERE product_id=%s",
-                            [id])
+                            [id_to_search])
         product = self.cursor.fetchall()
         self.disconnect()
         return product[0] if product else None

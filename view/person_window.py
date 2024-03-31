@@ -15,7 +15,7 @@ class PersonForm:
             person_family.variable.set(row[2])
 
         def person_save_click():
-            status, message = save(
+            status, message = save_person(
                 person_name.variable.get(),
                 person_family.variable.get())
 
@@ -26,7 +26,7 @@ class PersonForm:
                 msg.showerror("Save Error", message)
 
         def person_edit_click():
-            status, message = edit(
+            status, message = edit_person(
                 person_id.variable.get(),
                 person_name.variable.get(),
                 person_family.variable.get())
@@ -38,7 +38,7 @@ class PersonForm:
                 msg.showerror("Edit Error", message)
 
         def person_remove_click():
-            status, message = remove(person_id.variable.get())
+            status, message = remove_person(person_id.variable.get())
 
             if status:
                 msg.showinfo("Remove", message)
