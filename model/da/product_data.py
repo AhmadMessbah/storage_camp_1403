@@ -25,14 +25,15 @@ class ProductData:
 
     def edit(self, quantity, buyer_price, seller_price, id):
         self.connect()
-        self.cursor.execute("UPDATE PRODUCT SET name=%s, brand=%s, quantity=%s, buyer_price=%s,  seller_price=%s WHERE ID=%s",
-                            [quantity, buyer_price, seller_price, id])
+        self.cursor.execute(
+            "UPDATE PRODUCT SET name=%s, brand=%s, quantity=%s, buyer_price=%s,  seller_price=%s WHERE product_id=%s",
+            [quantity, buyer_price, seller_price, id])
         self.connection.commit()
         self.disconnect()
 
     def remove(self, id):
         self.connect()
-        self.cursor.execute("DELETE FROM PRODUCT WHERE ID=%s",
+        self.cursor.execute("DELETE FROM PRODUCT WHERE product_id=%s",
                             [id])
         self.connection.commit()
         self.disconnect()
@@ -46,7 +47,7 @@ class ProductData:
 
     def find_by_id(self, id):
         self.connect()
-        self.cursor.execute("SELECT * FROM PRODUCT WHERE ID=%s",
+        self.cursor.execute("SELECT * FROM PRODUCT WHERE product_id=%s",
                             [id])
         product = self.cursor.fetchall()
         self.disconnect()

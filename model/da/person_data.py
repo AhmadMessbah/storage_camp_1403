@@ -24,14 +24,14 @@ class PersonData:
 
     def edit(self, id, name, family, phone):
         self.connect()
-        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE ID=%s",
+        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE person_id=%s",
                             [name, family, phone, id])
         self.connection.commit()
         self.disconnect()
 
     def remove(self, id):
         self.connect()
-        self.cursor.execute("DELETE FROM PERSON WHERE ID=%s",
+        self.cursor.execute("DELETE FROM PERSON WHERE person_id=%s",
                             [id])
         self.connection.commit()
         self.disconnect()
@@ -45,7 +45,7 @@ class PersonData:
 
     def find_by_id(self, id):
         self.connect()
-        self.cursor.execute("SELECT * FROM PERSON WHERE ID=%s",
+        self.cursor.execute("SELECT * FROM PERSON WHERE person_id=%s",
                             [id])
         person = self.cursor.fetchall()
         self.disconnect()
