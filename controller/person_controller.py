@@ -2,11 +2,11 @@ from controller.validator import *
 from model.da.person_data import PersonData
 
 
-def save_person(name, family, phone_number):
+def save_person(name, family, phone):
     try:
-        if name_validator(name) and name_validator(family) and phone_number_validator(phone_number):
+        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
             data = PersonData()
-            data.save(name, family, phone_number)
+            data.save(name, family, phone)
             return True, "Saved"
         else:
             return False, "Error : Invalid Data"
@@ -16,7 +16,7 @@ def save_person(name, family, phone_number):
 
 def edit_person(id, name, family, phone_number):
     try:
-        if name_validator(name) and name_validator(family) and phone_number_validator(phone_number):
+        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
             data = PersonData()
             data.edit(id, name, family, phone_number)
             return True, "Edited"

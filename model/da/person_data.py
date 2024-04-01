@@ -6,8 +6,8 @@ class PersonData:
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="root123",
-            database="mft"
+            password="mrnd181375",
+            database="storage"
         )
         self.cursor = self.connection.cursor()
 

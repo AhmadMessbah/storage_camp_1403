@@ -10,14 +10,16 @@ class PersonForm:
         win.geometry("300x450")
 
         def person_select(row):
-            person_id.variable.set(row[0])
-            person_name.variable.set(row[1])
-            person_family.variable.set(row[2])
+            person_name.variable.set(row[0])
+            person_family.variable.set(row[1])
+            person_phone.variable.set(row[2])
+
 
         def person_save_click():
             status, message = save_person(
                 person_name.variable.get(),
-                person_family.variable.get())
+                person_family.variable.get(),
+                person_phone.variable.get())
 
             if status:
                 msg.showinfo("Save", message)
@@ -27,9 +29,10 @@ class PersonForm:
 
         def person_edit_click():
             status, message = edit_person(
-                person_id.variable.get(),
+                person_phone.variable.get(),
                 person_name.variable.get(),
-                person_family.variable.get())
+                person_family.variable.get(),
+                )
 
             if status:
                 msg.showinfo("Edit", message)
@@ -48,9 +51,9 @@ class PersonForm:
 
         # Person
         Label(win, text="Person Info", font=("Arial", 16)).place(x=20, y=10)
-        person_id = TextAndLabel(win, "name", 20, 50)
-        person_name = TextAndLabel(win, "family", 20, 85)
-        person_family = TextAndLabel(win, "phone", 20, 120)
+        person_name = TextAndLabel(win, "name", 20, 50)
+        person_family = TextAndLabel(win, "family", 20, 85)
+        person_phone = TextAndLabel(win, "phone", 20, 120)
 
         p_table = Table(win,
                         None,
