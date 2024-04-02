@@ -4,7 +4,7 @@ from model.da.person_data import PersonData
 
 def save_person(name, family, phone):
     try:
-        if name_validator(name) and name_validator(family) and phone_validator(phone):
+        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
             data = PersonData()
             data.save(name, family, phone)
             return True, "Saved"
@@ -16,7 +16,7 @@ def save_person(name, family, phone):
 
 def edit_person(id, name, family, phone):
     try:
-        if name_validator(name) and name_validator(family) and phone_validator(phone):
+        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
             data = PersonData()
             data.edit(id, name, family, phone)
             return True, "Edited"

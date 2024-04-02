@@ -14,7 +14,6 @@ class PersonForm:
             person_family.variable.set(row[1])
             person_phone.variable.set(row[2])
 
-
         def person_save_click():
             status, message = save_person(
                 person_name.variable.get(),
