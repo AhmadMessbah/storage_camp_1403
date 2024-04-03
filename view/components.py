@@ -19,7 +19,7 @@ class Table:
                 self.table.insert("", END, values=data)
 
         self.table.bind("<ButtonRelease>", self.select)
-        # self.table.bind("<KeyRelease>", self.select)
+        self.table.bind("<KeyRelease>", self.select)
         self.table.place(x=x, y=y)
 
     def refresh_table(self, data_list):
@@ -40,9 +40,5 @@ class TextAndLabel:
         Label(master, text=text).place(x=x, y=y)
         self.variable = StringVar()
         Entry(master, textvariable=self.variable, state=state).place(x=x + distance, y=y)
-        # self.var.place(x=x + distance, y=y)
-
-    # def get_var(self):
-    #     return self.var
 
 

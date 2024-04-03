@@ -57,7 +57,6 @@ class PersonForm:
             else:
                 msg.showerror("Remove Error", message)
 
-        # Person
         Label(win, text="Person Info", font=("Arial", 16)).place(x=20, y=10)
         person_id = TextAndLabel(win, "id", 20, 50, state="readonly")
         person_name = TextAndLabel(win, "name", 20, 85)

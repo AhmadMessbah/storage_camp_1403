@@ -6,7 +6,7 @@ from controller.product_controller import *
 class ProductForm:
 
     def __init__(self):
-        win = Tk()
+        win = Toplevel()
         win.geometry("700x550")
         win.title("Product Form")
 
@@ -68,7 +68,6 @@ class ProductForm:
             else:
                 msg.showerror("Remove Error", message)
 
-        # Person
         Label(win, text="Product Info", font=("Arial", 16)).place(x=20, y=10)
         product_id = TextAndLabel(win, "id", 20, 50, state="readonly")
         product_name = TextAndLabel(win, "name", 20, 85)
