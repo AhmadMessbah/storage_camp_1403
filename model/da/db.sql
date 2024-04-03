@@ -4,7 +4,7 @@ create table storage.person(
     id int primary key auto_increment,
     name varchar(30),
     family varchar(30),
-    phone int
+    phone varchar(20)
 );
 
 create table storage.product(

@@ -15,10 +15,14 @@ class PersonForm:
             person_phone.variable.set(row[2])
 
         def person_save_click():
+            print('name: ', person_name.get())
+            print('family: ', person_family.get())
+            print('number: ', person_phone.get())
+
             status, message = save_person(
-                person_name.variable.get(),
-                person_family.variable.get(),
-                person_phone.variable.get())
+                person_name.get(),
+                person_family.get(),
+                person_phone.get())
 
             if status:
                 msg.showinfo("Save", message)
@@ -31,7 +35,7 @@ class PersonForm:
                 person_phone.variable.get(),
                 person_name.variable.get(),
                 person_family.variable.get(),
-                )
+            )
 
             if status:
                 msg.showinfo("Edit", message)
@@ -50,9 +54,9 @@ class PersonForm:
 
         # Person
         Label(win, text="Person Info", font=("Arial", 16)).place(x=20, y=10)
-        person_name = TextAndLabel(win, "name", 20, 50)
-        person_family = TextAndLabel(win, "family", 20, 85)
-        person_phone = TextAndLabel(win, "phone", 20, 120)
+        person_name = TextAndLabel(win, "name", 20, 50).get_var()
+        person_family = TextAndLabel(win, "family", 20, 85).get_var()
+        person_phone = TextAndLabel(win, "phone", 20, 120).get_var()
 
         p_table = Table(win,
                         None,

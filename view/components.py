@@ -38,4 +38,10 @@ class TextAndLabel:
     def __init__(self, master, text, x, y, distance=80):
         Label(master, text=text).place(x=x, y=y)
         self.variable = StringVar()
-        Entry(master, textvariable=self.variable).place(x=x + distance, y=y)
+        self.var = Entry(master, textvariable=self.variable)
+        self.var.place(x=x + distance, y=y)
+
+    def get_var(self):
+        return self.var
+
+

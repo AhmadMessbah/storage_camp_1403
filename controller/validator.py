@@ -7,3 +7,4 @@ def name_validator(name):
 
 def phone_number_validator(phone):
     return bool(re.match(r'^(09|\+989)\d{9}$', phone))
+
