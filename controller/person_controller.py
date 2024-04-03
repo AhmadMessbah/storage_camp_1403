@@ -4,7 +4,7 @@ from model.da.person_data import PersonData
 
 def save_person(name, family, phone):
     try:
-        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
+        if name_validator(name) and name_validator(family) and phone_validator(phone):
             data = PersonData()
             data.save(name, family, phone)
             return True, "Saved"
@@ -14,11 +14,11 @@ def save_person(name, family, phone):
         return False, f"Error : {e}"
 
 
-def edit_person(id, name, family, phone):
+def edit_person(person_id, name, family, phone):
     try:
-        if name_validator(name) and name_validator(family) and phone_number_validator(phone):
+        if name_validator(name) and name_validator(family) and phone_validator(phone):
             data = PersonData()
-            data.edit(id, name, family, phone)
+            data.edit(person_id, name, family, phone)
             return True, "Edited"
         else:
             return False, "Error : Invalid Data"
@@ -26,10 +26,10 @@ def edit_person(id, name, family, phone):
         return False, f"Error : {e}"
 
 
-def remove_person(id):
+def remove_person(id_to_remove):
     try:
-        data = PersonDa()
-        data.remove(id)
+        data = PersonData()
+        data.remove(id_to_remove)
         return True, "Removed"
     except Exception as e:
         return False, f"Error : {e}"

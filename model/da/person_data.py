@@ -6,8 +6,8 @@ class PersonData:
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="mrnd181375",
-            database="storage"
+            password="root123",
+            database="mft"
         )
         self.cursor = self.connection.cursor()
 
@@ -17,36 +17,36 @@ class PersonData:
 
     def save(self, name, family, phone):
         self.connect()
-        self.cursor.execute("INSERT INTO PERSON (name, family, phone) VALUES (%s,%s,%s)",
+        self.cursor.execute("insert into person (name, family, phone) values (%s,%s,%s)",
                             [name, family, phone])
         self.connection.commit()
         self.disconnect()
 
-    def edit(self, id, name, family, phone):
+    def edit(self, id_to_edit, name, family, phone):
         self.connect()
-        self.cursor.execute("UPDATE PERSON SET NAME=%s, FAMILY=%s, phone=%s WHERE person_id=%s",
-                            [name, family, phone, id])
+        self.cursor.execute("update person set name=%s, family=%s, phone=%s where person_id=%s",
+                            [name, family, phone, id_to_edit])
         self.connection.commit()
         self.disconnect()
 
-    def remove(self, id):
+    def remove(self, id_to_remove):
         self.connect()
-        self.cursor.execute("DELETE FROM PERSON WHERE person_id=%s",
-                            [id])
+        self.cursor.execute("delete from person where person_id=%s",
+                            [id_to_remove])
         self.connection.commit()
         self.disconnect()
 
     def find_all(self):
         self.connect()
-        self.cursor.execute("SELECT * FROM PERSON ORDER BY FAMILY")
+        self.cursor.execute("select * from person order by family")
         person_list = self.cursor.fetchall()
         self.disconnect()
         return person_list if person_list else None
 
-    def find_by_id(self, id):
+    def find_by_id(self, id_to_find):
         self.connect()
-        self.cursor.execute("SELECT * FROM PERSON WHERE person_id=%s",
-                            [id])
+        self.cursor.execute("select * from person where person_id=%s",
+                            [id_to_find])
         person = self.cursor.fetchall()
         self.disconnect()
         return person[0] if person else None

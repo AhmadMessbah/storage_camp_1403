@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter.ttk as ttk
+from typing import Literal
 
 
 class Table:
@@ -35,11 +36,13 @@ class Table:
 
 
 class TextAndLabel:
-    def __init__(self, master, text, x, y, distance=80):
+    def __init__(self, master, text, x, y, distance=80, state: Literal["normal", "disabled", "readonly"] = "normal"):
         Label(master, text=text).place(x=x, y=y)
         self.variable = StringVar()
-        self.var = Entry(master, textvariable=self.variable)
-        self.var.place(x=x + distance, y=y)
+        Entry(master, textvariable=self.variable, state=state).place(x=x + distance, y=y)
+        # self.var.place(x=x + distance, y=y)
 
-    def get_var(self):
-        return self.var
+    # def get_var(self):
+    #     return self.var
+
+
