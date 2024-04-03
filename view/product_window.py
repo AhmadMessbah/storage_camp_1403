@@ -91,5 +91,3 @@ class ProductForm:
 
         win.mainloop()
 
-
-ProductForm()
