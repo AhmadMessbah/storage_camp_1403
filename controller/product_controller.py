@@ -1,4 +1,4 @@
-from controller.validator import name_validator
+from controller.validator import *
 from model.da.product_data import ProductData
 
 

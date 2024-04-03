@@ -26,20 +26,20 @@ class PersonForm:
 
             if status:
                 msg.showinfo("Save", message)
-                refresh_person_side()
+                # refresh_person_side()
             else:
                 msg.showerror("Save Error", message)
 
         def person_edit_click():
             status, message = edit_person(
-                person_phone.variable.get(),
-                person_name.variable.get(),
-                person_family.variable.get(),
+                person_phone.get(),
+                person_name.get(),
+                person_family.get(),
             )
 
             if status:
                 msg.showinfo("Edit", message)
-                refresh_person_side()
+                # refresh_person_side()
             else:
                 msg.showerror("Edit Error", message)
 
@@ -48,7 +48,7 @@ class PersonForm:
 
             if status:
                 msg.showinfo("Remove", message)
-                refresh_person_side()
+                # refresh_person_side()
             else:
                 msg.showerror("Remove Error", message)
 

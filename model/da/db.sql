@@ -10,9 +10,10 @@ create table storage.person(
 create table storage.product(
     id int primary key auto_increment,
     name varchar(30),
-    count smallint,
-    price_b smallint,
-    price_s smallint
+    brand varchar(30),
+    quantity varchar(10),
+    buyer_price varchar(10),
+    seller_price varchar(10)
 );
 
 
