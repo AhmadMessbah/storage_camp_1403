@@ -10,7 +10,7 @@ class ProductForm:
         win.geometry("700x550")
         win.title("Product Form")
 
-        def refresh_product_table():
+        def refresh_transaction_table():
             product_id.variable.set("")
             product_name.variable.set("")
             product_brand.variable.set("")
@@ -39,7 +39,7 @@ class ProductForm:
 
             if status:
                 msg.showinfo("Save", message)
-                refresh_product_table()
+                refresh_product_side()
             else:
                 msg.showerror("Save Error", message)
 
@@ -55,7 +55,7 @@ class ProductForm:
 
             if status:
                 msg.showinfo("Edit", message)
-                refresh_product_table()
+                refresh_product_side()
             else:
                 msg.showerror("Edit Error", message)
 
@@ -64,7 +64,7 @@ class ProductForm:
 
             if status:
                 msg.showinfo("Remove", message)
-                refresh_product_table()
+                refresh_product_side()
             else:
                 msg.showerror("Remove Error", message)
 
@@ -87,7 +87,7 @@ class ProductForm:
         Button(win, text="Edit Product", width=12, command=product_edit_click).place(x=300, y=500)
         Button(win, text="Remove product", width=12, command=product_remove_click).place(x=500, y=500)
 
-        refresh_product_table()
+        refresh_product_side()
 
         win.mainloop()
 

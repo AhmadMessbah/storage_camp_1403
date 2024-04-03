@@ -10,7 +10,7 @@ class PersonForm:
         win.title("Person Form")
         win.geometry("450x500")
 
-        def refresh_person_side():
+        def refresh_person_table():
             person_id.variable.set("")
             person_name.variable.set("")
             person_family.variable.set("")
@@ -31,7 +31,7 @@ class PersonForm:
 
             if status:
                 msg.showinfo("Save", message)
-                refresh_person_side()
+                refresh_person_table()
             else:
                 msg.showerror("Save Error", message)
 
@@ -44,7 +44,7 @@ class PersonForm:
 
             if status:
                 msg.showinfo("Edit", message)
-                refresh_person_side()
+                refresh_person_table()
             else:
                 msg.showerror("Edit Error", message)
 
@@ -53,7 +53,7 @@ class PersonForm:
 
             if status:
                 msg.showinfo("Remove", message)
-                refresh_person_side()
+                refresh_person_table()
             else:
                 msg.showerror("Remove Error", message)
 
@@ -70,7 +70,7 @@ class PersonForm:
                              20,
                              190,
                              person_select)
-        refresh_person_side()
+        refresh_person_table()
         Button(win, text="Save Person", width=12, command=person_save_click).place(x=60, y=450)
         Button(win, text="Edit Person", width=12, command=person_edit_click).place(x=180, y=450)
         Button(win, text="Remove Person", width=12, command=person_remove_click).place(x=300, y=450)
