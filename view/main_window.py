@@ -1,6 +1,7 @@
 from tkinter import *
-from view.person_window import PersonForm
-from view.product_window import ProductForm
+from person_window import PersonForm
+from product_window import ProductForm
+from transaction_window import TransactionForm
 
 
 def open_person_form():
