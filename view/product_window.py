@@ -66,14 +66,14 @@ class ProductForm:
         product_brand = TextAndLabel(win, "brand", 20, 85).get_var()
         product_quantity = TextAndLabel(win, "quantity", 20, 120).get_var()
         product_buyer_price = TextAndLabel(win, "buyer_price", 20, 155).get_var()
-        product_seller_price = TextAndLabel(win, "seller_price", 20, 180).get_var()
+        product_seller_price = TextAndLabel(win, "seller_price", 20, 190).get_var()
 
         product_table = Table(win,
                         None,
                         ["name", "family", "phone"],
                         [60, 100, 100],
                         20,
-                        210,
+                        230,
                         product_select)
         Button(win, text="Saveproduct", width=10, command=product_save_click).place(x=20, y=470)
         Button(win, text="EditProduct", width=10, command=product_edit_click).place(x=110, y=470)
