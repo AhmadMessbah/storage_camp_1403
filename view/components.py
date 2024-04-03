@@ -43,5 +43,3 @@ class TextAndLabel:
 
     def get_var(self):
         return self.var
-
-

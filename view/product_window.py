@@ -7,7 +7,7 @@ class ProductForm:
 
     def __init__(self):
         win = Tk()
-        win.geometry("300x550")
+        win.geometry("350x550")
 
         def product_select(row):
             product_name.variable.set(row[0])
@@ -70,14 +70,14 @@ class ProductForm:
 
         product_table = Table(win,
                         None,
-                        ["name", "family", "phone"],
-                        [60, 100, 100],
+                        ["name", "brand", "quantity", "buyer_p", "seller_p"],
+                        [60, 80, 60, 50, 50],
                         20,
                         230,
                         product_select)
-        Button(win, text="Saveproduct", width=10, command=product_save_click).place(x=20, y=470)
-        Button(win, text="EditProduct", width=10, command=product_edit_click).place(x=110, y=470)
-        Button(win, text="Removeproduct", width=10, command=product_remove_click).place(x=200, y=470)
+        Button(win, text="Save product", width=12, command=product_save_click).place(x=20, y=470)
+        Button(win, text="Edit Product", width=12, command=product_edit_click).place(x=125, y=470)
+        Button(win, text="Remove product", width=12, command=product_remove_click).place(x=230, y=470)
 
         # refresh_person_side()
 
