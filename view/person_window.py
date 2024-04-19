@@ -74,6 +74,5 @@ class PersonForm:
         Button(win, text="Save Person", width=12, command=person_save_click).place(x=60, y=450)
         Button(win, text="Edit Person", width=12, command=person_edit_click).place(x=180, y=450)
         Button(win, text="Remove Person", width=12, command=person_remove_click).place(x=300, y=450)
-        # Button(win, text="Home", width=12, command="open_home_page").place(x=300, y=450)
 
         win.mainloop()

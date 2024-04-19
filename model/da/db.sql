@@ -1,6 +1,6 @@
 create database mft;
 
-create table mfy.person(
+create table mft.person(
     person_id int primary key auto_increment,
     name varchar(30),
     family varchar(30),
@@ -15,5 +15,14 @@ create table mft.product(
     buyer_price int,
     seller_price int
 );
+
+# create table mft.transaction(
+#     product_id int primary key auto_increment,
+#     name varchar(30),
+#     brand varchar(30),
+#     quantity int,
+#     buyer_price int,
+#     seller_price int
+# );
 
 
